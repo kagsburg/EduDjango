@@ -1,0 +1,30 @@
+<!-- extend the main theme to other templates -->
+{% extends 'main.html' %}
+
+{% block content %}
+<style>
+    .error {
+        color: red;
+    }
+    .home-container {
+        display: grid;
+        grid-template-columns: 1fr 3fr 1fr;
+    }
+</style>
+
+<div class="home-container">
+    <div>
+       {% include 'base/topic_comp.html' %}
+    </div>
+    <div>
+        <h3>{{room_count}}Browse Room</h3>
+  <a href="{% url 'create-room' %}">Add a new room</a>
+      {% include 'base/feed_comp.html' %}
+    </div>
+    <div>
+        {% include 'base/activity_comp.html' %}
+           
+    </div>
+    
+</div>
+{% endblock %}
